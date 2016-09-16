@@ -1,0 +1,1486 @@
+  [1m[35m (2.4ms)[0m  [1m[35mCREATE TABLE "cities" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "featured_attraction" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35m (1.3ms)[0m  [1m[35mCREATE TABLE "travellers" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "origin" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35m (1.4ms)[0m  [1m[35mCREATE TABLE "trips" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "traveller_id" integer, "city_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mselect sqlite_version(*)[0m
+  [1m[35m (3.8ms)[0m  [1m[35mCREATE  INDEX "index_trips_on_city_id" ON "trips" ("city_id")[0m
+  [1m[35m (0.2ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_trips_on_city_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_trips_on_city_id' AND type='index'
+[0m
+  [1m[35m (1.6ms)[0m  [1m[35mCREATE  INDEX "index_trips_on_traveller_id" ON "trips" ("traveller_id")[0m
+  [1m[35m (1.6ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (1.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES ('20160916142658')[0m
+  [1m[35m (1.3ms)[0m  [1m[32mINSERT INTO schema_migrations (version) VALUES ('20160916142351'), ('20160916142458');
+
+[0m
+  [1m[35m (1.4ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", :environment], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "test"], ["created_at", 2016-09-16 14:58:27 UTC], ["updated_at", 2016-09-16 14:58:27 UTC]]
+  [1m[35m (1.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", :environment], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "cities" ("name", "featured_attraction", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Istanbul"], ["featured_attraction", "Hagia Sofia"], ["created_at", 2016-09-16 14:58:27 UTC], ["updated_at", 2016-09-16 14:58:27 UTC]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.6ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "cities" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Taiwan"], ["created_at", 2016-09-16 14:58:27 UTC], ["updated_at", 2016-09-16 14:58:27 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.6ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "cities" ("name", "featured_attraction", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Istanbul"], ["featured_attraction", "Hagia Sofia"], ["created_at", 2016-09-16 14:58:47 UTC], ["updated_at", 2016-09-16 14:58:47 UTC]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (1.5ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "cities" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Taiwan"], ["created_at", 2016-09-16 14:58:47 UTC], ["updated_at", 2016-09-16 14:58:47 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.6ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "cities" ("name", "featured_attraction", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Istanbul"], ["featured_attraction", "Hagia Sofia"], ["created_at", 2016-09-16 14:59:03 UTC], ["updated_at", 2016-09-16 14:59:03 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (31.5ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "cities" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Taiwan"], ["created_at", 2016-09-16 14:59:03 UTC], ["updated_at", 2016-09-16 14:59:03 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.6ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "cities" ("name", "featured_attraction", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Istanbul"], ["featured_attraction", "Hagia Sofia"], ["created_at", 2016-09-16 15:03:13 UTC], ["updated_at", 2016-09-16 15:03:13 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.7ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "cities" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Taiwan"], ["created_at", 2016-09-16 15:03:13 UTC], ["updated_at", 2016-09-16 15:03:13 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.6ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "travellers" ("origin", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["origin", "Florida"], ["created_at", 2016-09-16 15:03:13 UTC], ["updated_at", 2016-09-16 15:03:13 UTC]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "travellers" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "JJ"], ["created_at", 2016-09-16 15:03:13 UTC], ["updated_at", 2016-09-16 15:03:13 UTC]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (1.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO "cities" ("name", "featured_attraction", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Istanbul"], ["featured_attraction", "Hagia Sofia"], ["created_at", 2016-09-16 15:06:06 UTC], ["updated_at", 2016-09-16 15:06:06 UTC]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.5ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "cities" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Taiwan"], ["created_at", 2016-09-16 15:06:06 UTC], ["updated_at", 2016-09-16 15:06:06 UTC]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.8ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "travellers" ("origin", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["origin", "Florida"], ["created_at", 2016-09-16 15:06:06 UTC], ["updated_at", 2016-09-16 15:06:06 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "travellers" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "JJ"], ["created_at", 2016-09-16 15:06:06 UTC], ["updated_at", 2016-09-16 15:06:06 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (1.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "travellers" ("name", "origin", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Francis"], ["origin", "Queens Baby"], ["created_at", 2016-09-16 15:06:06 UTC], ["updated_at", 2016-09-16 15:06:06 UTC]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "cities" ("name", "featured_attraction", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Istanbul"], ["featured_attraction", "Hagia Sofia"], ["created_at", 2016-09-16 15:06:06 UTC], ["updated_at", 2016-09-16 15:06:06 UTC]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mTraveller Load (0.2ms)[0m  [1m[34mSELECT  "travellers".* FROM "travellers" WHERE "travellers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCity Load (0.1ms)[0m  [1m[34mSELECT  "cities".* FROM "cities" WHERE "cities"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "trips" ("traveller_id", "city_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["traveller_id", 1], ["city_id", 1], ["created_at", 2016-09-16 15:06:06 UTC], ["updated_at", 2016-09-16 15:06:06 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (1.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "cities" ("name", "featured_attraction", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Istanbul"], ["featured_attraction", "Hagia Sofia"], ["created_at", 2016-09-16 15:07:09 UTC], ["updated_at", 2016-09-16 15:07:09 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.8ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "cities" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Taiwan"], ["created_at", 2016-09-16 15:07:09 UTC], ["updated_at", 2016-09-16 15:07:09 UTC]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.6ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "travellers" ("name", "origin", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Khaleda"], ["origin", "BK BIOTCH"], ["created_at", 2016-09-16 15:07:09 UTC], ["updated_at", 2016-09-16 15:07:09 UTC]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.6ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "travellers" ("origin", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["origin", "Florida"], ["created_at", 2016-09-16 15:07:09 UTC], ["updated_at", 2016-09-16 15:07:09 UTC]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "travellers" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "JJ"], ["created_at", 2016-09-16 15:07:09 UTC], ["updated_at", 2016-09-16 15:07:09 UTC]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (1.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "travellers" ("name", "origin", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Francis"], ["origin", "Queens Baby"], ["created_at", 2016-09-16 15:07:09 UTC], ["updated_at", 2016-09-16 15:07:09 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "cities" ("name", "featured_attraction", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Istanbul"], ["featured_attraction", "Hagia Sofia"], ["created_at", 2016-09-16 15:07:09 UTC], ["updated_at", 2016-09-16 15:07:09 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mTraveller Load (0.2ms)[0m  [1m[34mSELECT  "travellers".* FROM "travellers" WHERE "travellers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCity Load (0.1ms)[0m  [1m[34mSELECT  "cities".* FROM "cities" WHERE "cities"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "trips" ("traveller_id", "city_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["traveller_id", 1], ["city_id", 1], ["created_at", 2016-09-16 15:07:09 UTC], ["updated_at", 2016-09-16 15:07:09 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (1.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "cities" ("name", "featured_attraction", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Istanbul"], ["featured_attraction", "Hagia Sofia"], ["created_at", 2016-09-16 15:07:46 UTC], ["updated_at", 2016-09-16 15:07:46 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (1.3ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "cities" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Taiwan"], ["created_at", 2016-09-16 15:07:46 UTC], ["updated_at", 2016-09-16 15:07:46 UTC]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.7ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "travellers" ("name", "origin", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Khaleda"], ["origin", "BK BIOTCH"], ["created_at", 2016-09-16 15:07:46 UTC], ["updated_at", 2016-09-16 15:07:46 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.6ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "travellers" ("origin", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["origin", "Florida"], ["created_at", 2016-09-16 15:07:46 UTC], ["updated_at", 2016-09-16 15:07:46 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "travellers" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "JJ"], ["created_at", 2016-09-16 15:07:46 UTC], ["updated_at", 2016-09-16 15:07:46 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.8ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "travellers" ("name", "origin", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Francis"], ["origin", "Queens Baby"], ["created_at", 2016-09-16 15:07:46 UTC], ["updated_at", 2016-09-16 15:07:46 UTC]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "cities" ("name", "featured_attraction", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Istanbul"], ["featured_attraction", "Hagia Sofia"], ["created_at", 2016-09-16 15:07:46 UTC], ["updated_at", 2016-09-16 15:07:46 UTC]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mTraveller Load (0.2ms)[0m  [1m[34mSELECT  "travellers".* FROM "travellers" WHERE "travellers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCity Load (0.1ms)[0m  [1m[34mSELECT  "cities".* FROM "cities" WHERE "cities"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "trips" ("traveller_id", "city_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["traveller_id", 1], ["city_id", 1], ["created_at", 2016-09-16 15:07:46 UTC], ["updated_at", 2016-09-16 15:07:46 UTC]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (1.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "cities" ("name", "featured_attraction", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Istanbul"], ["featured_attraction", "Hagia Sofia"], ["created_at", 2016-09-16 15:07:54 UTC], ["updated_at", 2016-09-16 15:07:54 UTC]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.7ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "cities" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Taiwan"], ["created_at", 2016-09-16 15:07:54 UTC], ["updated_at", 2016-09-16 15:07:54 UTC]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.6ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "travellers" ("name", "origin", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Khaleda"], ["origin", "BK BIOTCH"], ["created_at", 2016-09-16 15:07:54 UTC], ["updated_at", 2016-09-16 15:07:54 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.5ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "travellers" ("origin", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["origin", "Florida"], ["created_at", 2016-09-16 15:07:54 UTC], ["updated_at", 2016-09-16 15:07:54 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "travellers" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "JJ"], ["created_at", 2016-09-16 15:07:54 UTC], ["updated_at", 2016-09-16 15:07:54 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.8ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "travellers" ("name", "origin", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Francis"], ["origin", "Queens Baby"], ["created_at", 2016-09-16 15:07:54 UTC], ["updated_at", 2016-09-16 15:07:54 UTC]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "cities" ("name", "featured_attraction", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Istanbul"], ["featured_attraction", "Hagia Sofia"], ["created_at", 2016-09-16 15:07:54 UTC], ["updated_at", 2016-09-16 15:07:54 UTC]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mTraveller Load (0.2ms)[0m  [1m[34mSELECT  "travellers".* FROM "travellers" WHERE "travellers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCity Load (0.1ms)[0m  [1m[34mSELECT  "cities".* FROM "cities" WHERE "cities"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "trips" ("traveller_id", "city_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["traveller_id", 1], ["city_id", 1], ["created_at", 2016-09-16 15:07:54 UTC], ["updated_at", 2016-09-16 15:07:54 UTC]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (1.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (1.1ms)[0m  [1m[32mINSERT INTO "cities" ("name", "featured_attraction", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Istanbul"], ["featured_attraction", "Hagia Sofia"], ["created_at", 2016-09-16 15:10:43 UTC], ["updated_at", 2016-09-16 15:10:43 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (1.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO "cities" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Taiwan"], ["created_at", 2016-09-16 15:10:43 UTC], ["updated_at", 2016-09-16 15:10:43 UTC]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (1.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.9ms)[0m  [1m[32mINSERT INTO "travellers" ("name", "origin", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Khaleda"], ["origin", "BK BIOTCH"], ["created_at", 2016-09-16 15:10:43 UTC], ["updated_at", 2016-09-16 15:10:43 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.9ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "travellers" ("origin", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["origin", "Florida"], ["created_at", 2016-09-16 15:10:43 UTC], ["updated_at", 2016-09-16 15:10:43 UTC]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (1.3ms)[0m  [1m[32mINSERT INTO "travellers" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "JJ"], ["created_at", 2016-09-16 15:10:43 UTC], ["updated_at", 2016-09-16 15:10:43 UTC]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (1.4ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO "travellers" ("name", "origin", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Francis"], ["origin", "Queens Baby"], ["created_at", 2016-09-16 15:10:43 UTC], ["updated_at", 2016-09-16 15:10:43 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.9ms)[0m  [1m[32mINSERT INTO "cities" ("name", "featured_attraction", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Istanbul"], ["featured_attraction", "Hagia Sofia"], ["created_at", 2016-09-16 15:10:43 UTC], ["updated_at", 2016-09-16 15:10:43 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mTraveller Load (0.4ms)[0m  [1m[34mSELECT  "travellers".* FROM "travellers" WHERE "travellers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCity Load (0.3ms)[0m  [1m[34mSELECT  "cities".* FROM "cities" WHERE "cities"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "trips" ("traveller_id", "city_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["traveller_id", 1], ["city_id", 1], ["created_at", 2016-09-16 15:10:43 UTC], ["updated_at", 2016-09-16 15:10:43 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mCity Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "cities" INNER JOIN "trips" ON "cities"."id" = "trips"."city_id" WHERE "trips"."traveller_id" = ? AND "cities"."id" = ? LIMIT ?[0m  [["traveller_id", 1], ["id", 1], ["LIMIT", 1]]
+  [1m[35m (1.4ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (19.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (14.7ms)[0m  [1m[32mINSERT INTO "cities" ("name", "featured_attraction", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Istanbul"], ["featured_attraction", "Hagia Sofia"], ["created_at", 2016-09-16 15:13:25 UTC], ["updated_at", 2016-09-16 15:13:25 UTC]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.8ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.4ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (23.4ms)[0m  [1m[32mINSERT INTO "travellers" ("name", "origin", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Khaleda"], ["origin", "BK BIOTCH"], ["created_at", 2016-09-16 15:13:25 UTC], ["updated_at", 2016-09-16 15:13:25 UTC]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (23.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.9ms)[0m  [1m[32mINSERT INTO "travellers" ("name", "origin", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Francis"], ["origin", "Queens Baby"], ["created_at", 2016-09-16 15:13:25 UTC], ["updated_at", 2016-09-16 15:13:25 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.9ms)[0m  [1m[32mINSERT INTO "cities" ("name", "featured_attraction", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Istanbul"], ["featured_attraction", "Hagia Sofia"], ["created_at", 2016-09-16 15:13:25 UTC], ["updated_at", 2016-09-16 15:13:25 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mTraveller Load (0.4ms)[0m  [1m[34mSELECT  "travellers".* FROM "travellers" WHERE "travellers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCity Load (0.3ms)[0m  [1m[34mSELECT  "cities".* FROM "cities" WHERE "cities"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (19.0ms)[0m  [1m[32mINSERT INTO "trips" ("traveller_id", "city_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["traveller_id", 1], ["city_id", 1], ["created_at", 2016-09-16 15:13:25 UTC], ["updated_at", 2016-09-16 15:13:25 UTC]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mCity Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "cities" INNER JOIN "trips" ON "cities"."id" = "trips"."city_id" WHERE "trips"."traveller_id" = ? AND "cities"."id" = ? LIMIT ?[0m  [["traveller_id", 1], ["id", 1], ["LIMIT", 1]]
+  [1m[35m (1.5ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (19.6ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (15.3ms)[0m  [1m[32mINSERT INTO "cities" ("name", "featured_attraction", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Istanbul"], ["featured_attraction", "Hagia Sofia"], ["created_at", 2016-09-16 15:17:19 UTC], ["updated_at", 2016-09-16 15:17:19 UTC]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (20.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (11.3ms)[0m  [1m[32mINSERT INTO "travellers" ("name", "origin", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Khaleda"], ["origin", "BK BIOTCH"], ["created_at", 2016-09-16 15:17:20 UTC], ["updated_at", 2016-09-16 15:17:20 UTC]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.8ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.3ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.9ms)[0m  [1m[32mINSERT INTO "travellers" ("name", "origin", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Francis"], ["origin", "Queens Baby"], ["created_at", 2016-09-16 15:17:20 UTC], ["updated_at", 2016-09-16 15:17:20 UTC]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (1.1ms)[0m  [1m[32mINSERT INTO "cities" ("name", "featured_attraction", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Istanbul"], ["featured_attraction", "Hagia Sofia"], ["created_at", 2016-09-16 15:17:20 UTC], ["updated_at", 2016-09-16 15:17:20 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mTraveller Load (0.5ms)[0m  [1m[34mSELECT  "travellers".* FROM "travellers" WHERE "travellers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCity Load (0.3ms)[0m  [1m[34mSELECT  "cities".* FROM "cities" WHERE "cities"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (18.8ms)[0m  [1m[32mINSERT INTO "trips" ("traveller_id", "city_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["traveller_id", 1], ["city_id", 1], ["created_at", 2016-09-16 15:17:20 UTC], ["updated_at", 2016-09-16 15:17:20 UTC]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mCity Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "cities" INNER JOIN "trips" ON "cities"."id" = "trips"."city_id" WHERE "trips"."traveller_id" = ? AND "cities"."id" = ? LIMIT ?[0m  [["traveller_id", 1], ["id", 1], ["LIMIT", 1]]
+  [1m[35m (1.6ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (29.9ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (14.4ms)[0m  [1m[32mINSERT INTO "travellers" ("name", "origin", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Andrew"], ["origin", "Lawn Guyland"], ["created_at", 2016-09-16 15:30:49 UTC], ["updated_at", 2016-09-16 15:30:49 UTC]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (1.2ms)[0m  [1m[32mINSERT INTO "travellers" ("name", "origin", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Colby"], ["origin", "Chicago"], ["created_at", 2016-09-16 15:30:49 UTC], ["updated_at", 2016-09-16 15:30:49 UTC]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/api/v1/travellers" for 127.0.0.1 at 2016-09-16 11:30:49 -0400
+  [1m[35m (1.7ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+Started POST "/api/v1/travellers" for 127.0.0.1 at 2016-09-16 11:30:49 -0400
+  [1m[35m (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+Started POST "/api/v1/travellers" for 127.0.0.1 at 2016-09-16 11:30:49 -0400
+  [1m[35m (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+Started DELETE "/api/v1/travellers/1" for 127.0.0.1 at 2016-09-16 11:30:49 -0400
+  [1m[35m (0.7ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (8.1ms)[0m  [1m[32mINSERT INTO "cities" ("name", "featured_attraction", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Istanbul"], ["featured_attraction", "Hagia Sofia"], ["created_at", 2016-09-16 15:30:49 UTC], ["updated_at", 2016-09-16 15:30:49 UTC]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.8ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.9ms)[0m  [1m[32mINSERT INTO "travellers" ("name", "origin", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Khaleda"], ["origin", "BK BIOTCH"], ["created_at", 2016-09-16 15:30:49 UTC], ["updated_at", 2016-09-16 15:30:49 UTC]]
+  [1m[35m (0.5ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.9ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (1.2ms)[0m  [1m[32mINSERT INTO "travellers" ("name", "origin", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Francis"], ["origin", "Queens Baby"], ["created_at", 2016-09-16 15:30:49 UTC], ["updated_at", 2016-09-16 15:30:49 UTC]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (1.5ms)[0m  [1m[32mINSERT INTO "cities" ("name", "featured_attraction", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Istanbul"], ["featured_attraction", "Hagia Sofia"], ["created_at", 2016-09-16 15:30:49 UTC], ["updated_at", 2016-09-16 15:30:49 UTC]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mTraveller Load (0.4ms)[0m  [1m[34mSELECT  "travellers".* FROM "travellers" WHERE "travellers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCity Load (0.3ms)[0m  [1m[34mSELECT  "cities".* FROM "cities" WHERE "cities"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (17.5ms)[0m  [1m[32mINSERT INTO "trips" ("traveller_id", "city_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["traveller_id", 1], ["city_id", 1], ["created_at", 2016-09-16 15:30:49 UTC], ["updated_at", 2016-09-16 15:30:49 UTC]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mCity Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "cities" INNER JOIN "trips" ON "cities"."id" = "trips"."city_id" WHERE "trips"."traveller_id" = ? AND "cities"."id" = ? LIMIT ?[0m  [["traveller_id", 1], ["id", 1], ["LIMIT", 1]]
+  [1m[35m (1.8ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (18.8ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (14.7ms)[0m  [1m[32mINSERT INTO "travellers" ("name", "origin", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Andrew"], ["origin", "Lawn Guyland"], ["created_at", 2016-09-16 15:35:12 UTC], ["updated_at", 2016-09-16 15:35:12 UTC]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.9ms)[0m  [1m[32mINSERT INTO "travellers" ("name", "origin", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Colby"], ["origin", "Chicago"], ["created_at", 2016-09-16 15:35:12 UTC], ["updated_at", 2016-09-16 15:35:12 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/api/v1/travellers" for 127.0.0.1 at 2016-09-16 11:35:12 -0400
+  [1m[35m (1.7ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (1.5ms)[0m  [1m[32mINSERT INTO "cities" ("name", "featured_attraction", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Istanbul"], ["featured_attraction", "Hagia Sofia"], ["created_at", 2016-09-16 15:35:12 UTC], ["updated_at", 2016-09-16 15:35:12 UTC]]
+  [1m[35m (0.3ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.9ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (1.1ms)[0m  [1m[32mINSERT INTO "travellers" ("name", "origin", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Khaleda"], ["origin", "BK BIOTCH"], ["created_at", 2016-09-16 15:35:12 UTC], ["updated_at", 2016-09-16 15:35:12 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.9ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.9ms)[0m  [1m[32mINSERT INTO "travellers" ("name", "origin", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Francis"], ["origin", "Queens Baby"], ["created_at", 2016-09-16 15:35:12 UTC], ["updated_at", 2016-09-16 15:35:12 UTC]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.9ms)[0m  [1m[32mINSERT INTO "cities" ("name", "featured_attraction", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Istanbul"], ["featured_attraction", "Hagia Sofia"], ["created_at", 2016-09-16 15:35:12 UTC], ["updated_at", 2016-09-16 15:35:12 UTC]]
+  [1m[35m (0.4ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mTraveller Load (0.4ms)[0m  [1m[34mSELECT  "travellers".* FROM "travellers" WHERE "travellers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCity Load (0.3ms)[0m  [1m[34mSELECT  "cities".* FROM "cities" WHERE "cities"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (18.2ms)[0m  [1m[32mINSERT INTO "trips" ("traveller_id", "city_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["traveller_id", 1], ["city_id", 1], ["created_at", 2016-09-16 15:35:12 UTC], ["updated_at", 2016-09-16 15:35:12 UTC]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mCity Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "cities" INNER JOIN "trips" ON "cities"."id" = "trips"."city_id" WHERE "trips"."traveller_id" = ? AND "cities"."id" = ? LIMIT ?[0m  [["traveller_id", 1], ["id", 1], ["LIMIT", 1]]
+  [1m[35m (1.6ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (19.4ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (27.6ms)[0m  [1m[32mINSERT INTO "travellers" ("name", "origin", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Andrew"], ["origin", "Lawn Guyland"], ["created_at", 2016-09-16 15:40:05 UTC], ["updated_at", 2016-09-16 15:40:05 UTC]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (1.1ms)[0m  [1m[32mINSERT INTO "travellers" ("name", "origin", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Colby"], ["origin", "Chicago"], ["created_at", 2016-09-16 15:40:06 UTC], ["updated_at", 2016-09-16 15:40:06 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/api/v1/travellers" for 127.0.0.1 at 2016-09-16 11:40:06 -0400
+  [1m[35m (1.7ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (1.2ms)[0m  [1m[32mINSERT INTO "cities" ("name", "featured_attraction", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Istanbul"], ["featured_attraction", "Hagia Sofia"], ["created_at", 2016-09-16 15:40:06 UTC], ["updated_at", 2016-09-16 15:40:06 UTC]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.7ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.9ms)[0m  [1m[32mINSERT INTO "travellers" ("name", "origin", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Khaleda"], ["origin", "BK BIOTCH"], ["created_at", 2016-09-16 15:40:06 UTC], ["updated_at", 2016-09-16 15:40:06 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.8ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.9ms)[0m  [1m[32mINSERT INTO "travellers" ("name", "origin", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Francis"], ["origin", "Queens Baby"], ["created_at", 2016-09-16 15:40:06 UTC], ["updated_at", 2016-09-16 15:40:06 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO "cities" ("name", "featured_attraction", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Istanbul"], ["featured_attraction", "Hagia Sofia"], ["created_at", 2016-09-16 15:40:06 UTC], ["updated_at", 2016-09-16 15:40:06 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mTraveller Load (0.4ms)[0m  [1m[34mSELECT  "travellers".* FROM "travellers" WHERE "travellers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCity Load (0.3ms)[0m  [1m[34mSELECT  "cities".* FROM "cities" WHERE "cities"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (18.6ms)[0m  [1m[32mINSERT INTO "trips" ("traveller_id", "city_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["traveller_id", 1], ["city_id", 1], ["created_at", 2016-09-16 15:40:06 UTC], ["updated_at", 2016-09-16 15:40:06 UTC]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mCity Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "cities" INNER JOIN "trips" ON "cities"."id" = "trips"."city_id" WHERE "trips"."traveller_id" = ? AND "cities"."id" = ? LIMIT ?[0m  [["traveller_id", 1], ["id", 1], ["LIMIT", 1]]
+  [1m[35m (1.6ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (1.1ms)[0m  [1m[32mINSERT INTO "travellers" ("name", "origin", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Andrew"], ["origin", "Lawn Guyland"], ["created_at", 2016-09-16 15:41:11 UTC], ["updated_at", 2016-09-16 15:41:11 UTC]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.9ms)[0m  [1m[32mINSERT INTO "travellers" ("name", "origin", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Colby"], ["origin", "Chicago"], ["created_at", 2016-09-16 15:41:11 UTC], ["updated_at", 2016-09-16 15:41:11 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/api/v1/travellers" for 127.0.0.1 at 2016-09-16 11:41:11 -0400
+Processing by Api::V1::TravellersController#index as HTML
+  [1m[36mTraveller Load (0.3ms)[0m  [1m[34mSELECT "travellers".* FROM "travellers"[0m
+Completed 200 OK in 24ms (Views: 21.9ms | ActiveRecord: 0.3ms)
+  [1m[35m (1.7ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO "cities" ("name", "featured_attraction", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Istanbul"], ["featured_attraction", "Hagia Sofia"], ["created_at", 2016-09-16 15:41:11 UTC], ["updated_at", 2016-09-16 15:41:11 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.9ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO "travellers" ("name", "origin", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Khaleda"], ["origin", "BK BIOTCH"], ["created_at", 2016-09-16 15:41:11 UTC], ["updated_at", 2016-09-16 15:41:11 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.9ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.9ms)[0m  [1m[32mINSERT INTO "travellers" ("name", "origin", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Francis"], ["origin", "Queens Baby"], ["created_at", 2016-09-16 15:41:11 UTC], ["updated_at", 2016-09-16 15:41:11 UTC]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO "cities" ("name", "featured_attraction", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Istanbul"], ["featured_attraction", "Hagia Sofia"], ["created_at", 2016-09-16 15:41:11 UTC], ["updated_at", 2016-09-16 15:41:11 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mTraveller Load (0.4ms)[0m  [1m[34mSELECT  "travellers".* FROM "travellers" WHERE "travellers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCity Load (0.3ms)[0m  [1m[34mSELECT  "cities".* FROM "cities" WHERE "cities"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "trips" ("traveller_id", "city_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["traveller_id", 1], ["city_id", 1], ["created_at", 2016-09-16 15:41:11 UTC], ["updated_at", 2016-09-16 15:41:11 UTC]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mCity Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "cities" INNER JOIN "trips" ON "cities"."id" = "trips"."city_id" WHERE "trips"."traveller_id" = ? AND "cities"."id" = ? LIMIT ?[0m  [["traveller_id", 1], ["id", 1], ["LIMIT", 1]]
+  [1m[35m (27.8ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (3.0ms)[0m  [1m[32mINSERT INTO "travellers" ("name", "origin", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Andrew"], ["origin", "Lawn Guyland"], ["created_at", 2016-09-16 15:42:12 UTC], ["updated_at", 2016-09-16 15:42:12 UTC]]
+  [1m[35m (0.3ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (1.3ms)[0m  [1m[32mINSERT INTO "travellers" ("name", "origin", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Colby"], ["origin", "Chicago"], ["created_at", 2016-09-16 15:42:13 UTC], ["updated_at", 2016-09-16 15:42:13 UTC]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/api/v1/travellers" for 127.0.0.1 at 2016-09-16 11:42:13 -0400
+Processing by Api::V1::TravellersController#index as HTML
+  [1m[36mTraveller Load (0.4ms)[0m  [1m[34mSELECT "travellers".* FROM "travellers"[0m
+Completed 200 OK in 6ms (Views: 4.7ms | ActiveRecord: 0.4ms)
+  [1m[35m (1.9ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.9ms)[0m  [1m[32mINSERT INTO "cities" ("name", "featured_attraction", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Istanbul"], ["featured_attraction", "Hagia Sofia"], ["created_at", 2016-09-16 15:42:14 UTC], ["updated_at", 2016-09-16 15:42:14 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.8ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.5ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.4ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO "travellers" ("name", "origin", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Khaleda"], ["origin", "BK BIOTCH"], ["created_at", 2016-09-16 15:42:14 UTC], ["updated_at", 2016-09-16 15:42:14 UTC]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.9ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (1.2ms)[0m  [1m[32mINSERT INTO "travellers" ("name", "origin", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Francis"], ["origin", "Queens Baby"], ["created_at", 2016-09-16 15:42:14 UTC], ["updated_at", 2016-09-16 15:42:14 UTC]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.9ms)[0m  [1m[32mINSERT INTO "cities" ("name", "featured_attraction", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Istanbul"], ["featured_attraction", "Hagia Sofia"], ["created_at", 2016-09-16 15:42:14 UTC], ["updated_at", 2016-09-16 15:42:14 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.4ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mTraveller Load (0.5ms)[0m  [1m[34mSELECT  "travellers".* FROM "travellers" WHERE "travellers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCity Load (0.3ms)[0m  [1m[34mSELECT  "cities".* FROM "cities" WHERE "cities"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "trips" ("traveller_id", "city_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["traveller_id", 1], ["city_id", 1], ["created_at", 2016-09-16 15:42:14 UTC], ["updated_at", 2016-09-16 15:42:14 UTC]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mCity Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "cities" INNER JOIN "trips" ON "cities"."id" = "trips"."city_id" WHERE "trips"."traveller_id" = ? AND "cities"."id" = ? LIMIT ?[0m  [["traveller_id", 1], ["id", 1], ["LIMIT", 1]]
+  [1m[35m (1.4ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (2.8ms)[0m  [1m[32mINSERT INTO "travellers" ("name", "origin", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Andrew"], ["origin", "Lawn Guyland"], ["created_at", 2016-09-16 15:43:05 UTC], ["updated_at", 2016-09-16 15:43:05 UTC]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.9ms)[0m  [1m[32mINSERT INTO "travellers" ("name", "origin", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Colby"], ["origin", "Chicago"], ["created_at", 2016-09-16 15:43:05 UTC], ["updated_at", 2016-09-16 15:43:05 UTC]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/api/v1/travellers" for 127.0.0.1 at 2016-09-16 11:43:05 -0400
+Processing by Api::V1::TravellersController#index as HTML
+  [1m[36mTraveller Load (0.3ms)[0m  [1m[34mSELECT "travellers".* FROM "travellers"[0m
+Completed 200 OK in 6ms (Views: 4.4ms | ActiveRecord: 0.3ms)
+  [1m[35m (28.4ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO "cities" ("name", "featured_attraction", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Istanbul"], ["featured_attraction", "Hagia Sofia"], ["created_at", 2016-09-16 15:43:05 UTC], ["updated_at", 2016-09-16 15:43:05 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.9ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.9ms)[0m  [1m[32mINSERT INTO "travellers" ("name", "origin", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Khaleda"], ["origin", "BK BIOTCH"], ["created_at", 2016-09-16 15:43:05 UTC], ["updated_at", 2016-09-16 15:43:05 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.9ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.9ms)[0m  [1m[32mINSERT INTO "travellers" ("name", "origin", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Francis"], ["origin", "Queens Baby"], ["created_at", 2016-09-16 15:43:06 UTC], ["updated_at", 2016-09-16 15:43:06 UTC]]
+  [1m[35m (0.3ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (1.1ms)[0m  [1m[32mINSERT INTO "cities" ("name", "featured_attraction", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Istanbul"], ["featured_attraction", "Hagia Sofia"], ["created_at", 2016-09-16 15:43:06 UTC], ["updated_at", 2016-09-16 15:43:06 UTC]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mTraveller Load (0.5ms)[0m  [1m[34mSELECT  "travellers".* FROM "travellers" WHERE "travellers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCity Load (0.3ms)[0m  [1m[34mSELECT  "cities".* FROM "cities" WHERE "cities"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "trips" ("traveller_id", "city_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["traveller_id", 1], ["city_id", 1], ["created_at", 2016-09-16 15:43:06 UTC], ["updated_at", 2016-09-16 15:43:06 UTC]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mCity Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "cities" INNER JOIN "trips" ON "cities"."id" = "trips"."city_id" WHERE "trips"."traveller_id" = ? AND "cities"."id" = ? LIMIT ?[0m  [["traveller_id", 1], ["id", 1], ["LIMIT", 1]]
+  [1m[35m (1.6ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (1.2ms)[0m  [1m[32mINSERT INTO "travellers" ("name", "origin", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Andrew"], ["origin", "Lawn Guyland"], ["created_at", 2016-09-16 15:43:32 UTC], ["updated_at", 2016-09-16 15:43:32 UTC]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.9ms)[0m  [1m[32mINSERT INTO "travellers" ("name", "origin", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Colby"], ["origin", "Chicago"], ["created_at", 2016-09-16 15:43:32 UTC], ["updated_at", 2016-09-16 15:43:32 UTC]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/api/v1/travellers" for 127.0.0.1 at 2016-09-16 11:43:32 -0400
+Processing by Api::V1::TravellersController#index as HTML
+  [1m[36mTraveller Load (0.3ms)[0m  [1m[34mSELECT "travellers".* FROM "travellers"[0m
+Completed 200 OK in 6ms (Views: 4.7ms | ActiveRecord: 0.3ms)
+  [1m[35m (2.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO "cities" ("name", "featured_attraction", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Istanbul"], ["featured_attraction", "Hagia Sofia"], ["created_at", 2016-09-16 15:43:32 UTC], ["updated_at", 2016-09-16 15:43:32 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.8ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.9ms)[0m  [1m[32mINSERT INTO "travellers" ("name", "origin", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Khaleda"], ["origin", "BK BIOTCH"], ["created_at", 2016-09-16 15:43:33 UTC], ["updated_at", 2016-09-16 15:43:33 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.9ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.9ms)[0m  [1m[32mINSERT INTO "travellers" ("name", "origin", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Francis"], ["origin", "Queens Baby"], ["created_at", 2016-09-16 15:43:33 UTC], ["updated_at", 2016-09-16 15:43:33 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.9ms)[0m  [1m[32mINSERT INTO "cities" ("name", "featured_attraction", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Istanbul"], ["featured_attraction", "Hagia Sofia"], ["created_at", 2016-09-16 15:43:33 UTC], ["updated_at", 2016-09-16 15:43:33 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mTraveller Load (0.4ms)[0m  [1m[34mSELECT  "travellers".* FROM "travellers" WHERE "travellers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCity Load (0.4ms)[0m  [1m[34mSELECT  "cities".* FROM "cities" WHERE "cities"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "trips" ("traveller_id", "city_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["traveller_id", 1], ["city_id", 1], ["created_at", 2016-09-16 15:43:33 UTC], ["updated_at", 2016-09-16 15:43:33 UTC]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mCity Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "cities" INNER JOIN "trips" ON "cities"."id" = "trips"."city_id" WHERE "trips"."traveller_id" = ? AND "cities"."id" = ? LIMIT ?[0m  [["traveller_id", 1], ["id", 1], ["LIMIT", 1]]
+  [1m[35m (1.5ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (1.1ms)[0m  [1m[32mINSERT INTO "travellers" ("name", "origin", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Andrew"], ["origin", "Lawn Guyland"], ["created_at", 2016-09-16 15:44:13 UTC], ["updated_at", 2016-09-16 15:44:13 UTC]]
+  [1m[35m (0.3ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.9ms)[0m  [1m[32mINSERT INTO "travellers" ("name", "origin", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Colby"], ["origin", "Chicago"], ["created_at", 2016-09-16 15:44:13 UTC], ["updated_at", 2016-09-16 15:44:13 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/api/v1/travellers" for 127.0.0.1 at 2016-09-16 11:44:13 -0400
+Processing by Api::V1::TravellersController#index as HTML
+  [1m[36mTraveller Load (0.3ms)[0m  [1m[34mSELECT "travellers".* FROM "travellers"[0m
+Completed 200 OK in 6ms (Views: 4.2ms | ActiveRecord: 0.3ms)
+  [1m[35m (1.6ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO "cities" ("name", "featured_attraction", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Istanbul"], ["featured_attraction", "Hagia Sofia"], ["created_at", 2016-09-16 15:44:14 UTC], ["updated_at", 2016-09-16 15:44:14 UTC]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.8ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.9ms)[0m  [1m[32mINSERT INTO "travellers" ("name", "origin", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Khaleda"], ["origin", "BK BIOTCH"], ["created_at", 2016-09-16 15:44:14 UTC], ["updated_at", 2016-09-16 15:44:14 UTC]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (1.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.9ms)[0m  [1m[32mINSERT INTO "travellers" ("name", "origin", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Francis"], ["origin", "Queens Baby"], ["created_at", 2016-09-16 15:44:14 UTC], ["updated_at", 2016-09-16 15:44:14 UTC]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.9ms)[0m  [1m[32mINSERT INTO "cities" ("name", "featured_attraction", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Istanbul"], ["featured_attraction", "Hagia Sofia"], ["created_at", 2016-09-16 15:44:14 UTC], ["updated_at", 2016-09-16 15:44:14 UTC]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mTraveller Load (0.4ms)[0m  [1m[34mSELECT  "travellers".* FROM "travellers" WHERE "travellers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCity Load (0.4ms)[0m  [1m[34mSELECT  "cities".* FROM "cities" WHERE "cities"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "trips" ("traveller_id", "city_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["traveller_id", 1], ["city_id", 1], ["created_at", 2016-09-16 15:44:14 UTC], ["updated_at", 2016-09-16 15:44:14 UTC]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mCity Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "cities" INNER JOIN "trips" ON "cities"."id" = "trips"."city_id" WHERE "trips"."traveller_id" = ? AND "cities"."id" = ? LIMIT ?[0m  [["traveller_id", 1], ["id", 1], ["LIMIT", 1]]
+  [1m[35m (1.6ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (1.2ms)[0m  [1m[32mINSERT INTO "travellers" ("name", "origin", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Andrew"], ["origin", "Lawn Guyland"], ["created_at", 2016-09-16 15:46:04 UTC], ["updated_at", 2016-09-16 15:46:04 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (1.1ms)[0m  [1m[32mINSERT INTO "travellers" ("name", "origin", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Colby"], ["origin", "Chicago"], ["created_at", 2016-09-16 15:46:04 UTC], ["updated_at", 2016-09-16 15:46:04 UTC]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/api/v1/travellers" for 127.0.0.1 at 2016-09-16 11:46:04 -0400
+Processing by Api::V1::TravellersController#index as HTML
+  [1m[36mTraveller Load (0.3ms)[0m  [1m[34mSELECT "travellers".* FROM "travellers"[0m
+Completed 200 OK in 6ms (Views: 4.7ms | ActiveRecord: 0.3ms)
+  [1m[35m (36.9ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.9ms)[0m  [1m[32mINSERT INTO "cities" ("name", "featured_attraction", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Istanbul"], ["featured_attraction", "Hagia Sofia"], ["created_at", 2016-09-16 15:46:04 UTC], ["updated_at", 2016-09-16 15:46:04 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.9ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.9ms)[0m  [1m[32mINSERT INTO "travellers" ("name", "origin", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Khaleda"], ["origin", "BK BIOTCH"], ["created_at", 2016-09-16 15:46:04 UTC], ["updated_at", 2016-09-16 15:46:04 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.9ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.9ms)[0m  [1m[32mINSERT INTO "travellers" ("name", "origin", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Francis"], ["origin", "Queens Baby"], ["created_at", 2016-09-16 15:46:05 UTC], ["updated_at", 2016-09-16 15:46:05 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.9ms)[0m  [1m[32mINSERT INTO "cities" ("name", "featured_attraction", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Istanbul"], ["featured_attraction", "Hagia Sofia"], ["created_at", 2016-09-16 15:46:05 UTC], ["updated_at", 2016-09-16 15:46:05 UTC]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mTraveller Load (0.4ms)[0m  [1m[34mSELECT  "travellers".* FROM "travellers" WHERE "travellers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCity Load (0.4ms)[0m  [1m[34mSELECT  "cities".* FROM "cities" WHERE "cities"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "trips" ("traveller_id", "city_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["traveller_id", 1], ["city_id", 1], ["created_at", 2016-09-16 15:46:05 UTC], ["updated_at", 2016-09-16 15:46:05 UTC]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mCity Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "cities" INNER JOIN "trips" ON "cities"."id" = "trips"."city_id" WHERE "trips"."traveller_id" = ? AND "cities"."id" = ? LIMIT ?[0m  [["traveller_id", 1], ["id", 1], ["LIMIT", 1]]
+  [1m[35m (15.8ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (1.1ms)[0m  [1m[32mINSERT INTO "travellers" ("name", "origin", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Andrew"], ["origin", "Lawn Guyland"], ["created_at", 2016-09-16 15:46:50 UTC], ["updated_at", 2016-09-16 15:46:50 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (1.1ms)[0m  [1m[32mINSERT INTO "travellers" ("name", "origin", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Colby"], ["origin", "Chicago"], ["created_at", 2016-09-16 15:46:50 UTC], ["updated_at", 2016-09-16 15:46:50 UTC]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/api/v1/travellers" for 127.0.0.1 at 2016-09-16 11:46:50 -0400
+Processing by Api::V1::TravellersController#index as HTML
+  [1m[36mTraveller Load (0.3ms)[0m  [1m[34mSELECT "travellers".* FROM "travellers"[0m
+Completed 200 OK in 6ms (Views: 4.4ms | ActiveRecord: 0.3ms)
+  [1m[35m (2.5ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO "cities" ("name", "featured_attraction", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Istanbul"], ["featured_attraction", "Hagia Sofia"], ["created_at", 2016-09-16 15:46:50 UTC], ["updated_at", 2016-09-16 15:46:50 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.8ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO "travellers" ("name", "origin", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Khaleda"], ["origin", "BK BIOTCH"], ["created_at", 2016-09-16 15:46:50 UTC], ["updated_at", 2016-09-16 15:46:50 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.9ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.9ms)[0m  [1m[32mINSERT INTO "travellers" ("name", "origin", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Francis"], ["origin", "Queens Baby"], ["created_at", 2016-09-16 15:46:50 UTC], ["updated_at", 2016-09-16 15:46:50 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (1.1ms)[0m  [1m[32mINSERT INTO "cities" ("name", "featured_attraction", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Istanbul"], ["featured_attraction", "Hagia Sofia"], ["created_at", 2016-09-16 15:46:50 UTC], ["updated_at", 2016-09-16 15:46:50 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mTraveller Load (0.4ms)[0m  [1m[34mSELECT  "travellers".* FROM "travellers" WHERE "travellers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCity Load (0.3ms)[0m  [1m[34mSELECT  "cities".* FROM "cities" WHERE "cities"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "trips" ("traveller_id", "city_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["traveller_id", 1], ["city_id", 1], ["created_at", 2016-09-16 15:46:50 UTC], ["updated_at", 2016-09-16 15:46:50 UTC]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mCity Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "cities" INNER JOIN "trips" ON "cities"."id" = "trips"."city_id" WHERE "trips"."traveller_id" = ? AND "cities"."id" = ? LIMIT ?[0m  [["traveller_id", 1], ["id", 1], ["LIMIT", 1]]
+  [1m[35m (18.8ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (1.2ms)[0m  [1m[32mINSERT INTO "travellers" ("name", "origin", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Andrew"], ["origin", "Lawn Guyland"], ["created_at", 2016-09-16 15:53:51 UTC], ["updated_at", 2016-09-16 15:53:51 UTC]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (1.1ms)[0m  [1m[32mINSERT INTO "travellers" ("name", "origin", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Colby"], ["origin", "Chicago"], ["created_at", 2016-09-16 15:53:52 UTC], ["updated_at", 2016-09-16 15:53:52 UTC]]
+  [1m[35m (0.3ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/api/v1/travellers" for 127.0.0.1 at 2016-09-16 11:53:52 -0400
+Processing by Api::V1::TravellersController#index as HTML
+  [1m[36mTraveller Load (0.4ms)[0m  [1m[34mSELECT "travellers".* FROM "travellers"[0m
+Completed 200 OK in 6ms (Views: 4.6ms | ActiveRecord: 0.4ms)
+  [1m[35m (1.9ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (1.3ms)[0m  [1m[32mINSERT INTO "cities" ("name", "featured_attraction", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Istanbul"], ["featured_attraction", "Hagia Sofia"], ["created_at", 2016-09-16 15:53:52 UTC], ["updated_at", 2016-09-16 15:53:52 UTC]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (1.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.4ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.9ms)[0m  [1m[32mINSERT INTO "travellers" ("name", "origin", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Khaleda"], ["origin", "BK BIOTCH"], ["created_at", 2016-09-16 15:53:52 UTC], ["updated_at", 2016-09-16 15:53:52 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.8ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO "travellers" ("name", "origin", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Francis"], ["origin", "Queens Baby"], ["created_at", 2016-09-16 15:53:52 UTC], ["updated_at", 2016-09-16 15:53:52 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (1.1ms)[0m  [1m[32mINSERT INTO "cities" ("name", "featured_attraction", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Istanbul"], ["featured_attraction", "Hagia Sofia"], ["created_at", 2016-09-16 15:53:52 UTC], ["updated_at", 2016-09-16 15:53:52 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mTraveller Load (0.4ms)[0m  [1m[34mSELECT  "travellers".* FROM "travellers" WHERE "travellers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCity Load (0.3ms)[0m  [1m[34mSELECT  "cities".* FROM "cities" WHERE "cities"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "trips" ("traveller_id", "city_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["traveller_id", 1], ["city_id", 1], ["created_at", 2016-09-16 15:53:52 UTC], ["updated_at", 2016-09-16 15:53:52 UTC]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mCity Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "cities" INNER JOIN "trips" ON "cities"."id" = "trips"."city_id" WHERE "trips"."traveller_id" = ? AND "cities"."id" = ? LIMIT ?[0m  [["traveller_id", 1], ["id", 1], ["LIMIT", 1]]
+  [1m[35m (2.3ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (2.8ms)[0m  [1m[32mINSERT INTO "travellers" ("name", "origin", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Andrew"], ["origin", "Lawn Guyland"], ["created_at", 2016-09-16 15:54:39 UTC], ["updated_at", 2016-09-16 15:54:39 UTC]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (1.2ms)[0m  [1m[32mINSERT INTO "travellers" ("name", "origin", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Colby"], ["origin", "Chicago"], ["created_at", 2016-09-16 15:54:39 UTC], ["updated_at", 2016-09-16 15:54:39 UTC]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/api/v1/travellers" for 127.0.0.1 at 2016-09-16 11:54:39 -0400
+Processing by Api::V1::TravellersController#index as HTML
+  [1m[36mTraveller Load (0.3ms)[0m  [1m[34mSELECT "travellers".* FROM "travellers"[0m
+Completed 200 OK in 7ms (Views: 5.7ms | ActiveRecord: 0.3ms)
+  [1m[35m (2.4ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.9ms)[0m  [1m[32mINSERT INTO "cities" ("name", "featured_attraction", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Istanbul"], ["featured_attraction", "Hagia Sofia"], ["created_at", 2016-09-16 15:54:39 UTC], ["updated_at", 2016-09-16 15:54:39 UTC]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.9ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (1.2ms)[0m  [1m[32mINSERT INTO "travellers" ("name", "origin", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Khaleda"], ["origin", "BK BIOTCH"], ["created_at", 2016-09-16 15:54:39 UTC], ["updated_at", 2016-09-16 15:54:39 UTC]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.9ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (1.2ms)[0m  [1m[32mINSERT INTO "travellers" ("name", "origin", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Francis"], ["origin", "Queens Baby"], ["created_at", 2016-09-16 15:54:39 UTC], ["updated_at", 2016-09-16 15:54:39 UTC]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (1.2ms)[0m  [1m[32mINSERT INTO "cities" ("name", "featured_attraction", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Istanbul"], ["featured_attraction", "Hagia Sofia"], ["created_at", 2016-09-16 15:54:39 UTC], ["updated_at", 2016-09-16 15:54:39 UTC]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mTraveller Load (0.4ms)[0m  [1m[34mSELECT  "travellers".* FROM "travellers" WHERE "travellers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCity Load (0.3ms)[0m  [1m[34mSELECT  "cities".* FROM "cities" WHERE "cities"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "trips" ("traveller_id", "city_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["traveller_id", 1], ["city_id", 1], ["created_at", 2016-09-16 15:54:39 UTC], ["updated_at", 2016-09-16 15:54:39 UTC]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mCity Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "cities" INNER JOIN "trips" ON "cities"."id" = "trips"."city_id" WHERE "trips"."traveller_id" = ? AND "cities"."id" = ? LIMIT ?[0m  [["traveller_id", 1], ["id", 1], ["LIMIT", 1]]
+  [1m[35m (3.9ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (1.1ms)[0m  [1m[32mINSERT INTO "travellers" ("name", "origin", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Andrew"], ["origin", "Lawn Guyland"], ["created_at", 2016-09-16 17:09:46 UTC], ["updated_at", 2016-09-16 17:09:46 UTC]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (1.1ms)[0m  [1m[32mINSERT INTO "travellers" ("name", "origin", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Colby"], ["origin", "Chicago"], ["created_at", 2016-09-16 17:09:46 UTC], ["updated_at", 2016-09-16 17:09:46 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/api/v1/travellers" for 127.0.0.1 at 2016-09-16 13:09:46 -0400
+Processing by Api::V1::TravellersController#index as HTML
+  [1m[36mTraveller Load (0.6ms)[0m  [1m[34mSELECT "travellers".* FROM "travellers"[0m
+Completed 200 OK in 6ms (Views: 4.4ms | ActiveRecord: 0.6ms)
+  [1m[35m (1.4ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.9ms)[0m  [1m[32mINSERT INTO "cities" ("name", "featured_attraction", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Istanbul"], ["featured_attraction", "Hagia Sofia"], ["created_at", 2016-09-16 17:09:47 UTC], ["updated_at", 2016-09-16 17:09:47 UTC]]
+  [1m[35m (0.5ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (1.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.9ms)[0m  [1m[32mINSERT INTO "travellers" ("name", "origin", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Khaleda"], ["origin", "BK BIOTCH"], ["created_at", 2016-09-16 17:09:47 UTC], ["updated_at", 2016-09-16 17:09:47 UTC]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.9ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.9ms)[0m  [1m[32mINSERT INTO "travellers" ("name", "origin", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Francis"], ["origin", "Queens Baby"], ["created_at", 2016-09-16 17:09:47 UTC], ["updated_at", 2016-09-16 17:09:47 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (1.1ms)[0m  [1m[32mINSERT INTO "cities" ("name", "featured_attraction", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Istanbul"], ["featured_attraction", "Hagia Sofia"], ["created_at", 2016-09-16 17:09:47 UTC], ["updated_at", 2016-09-16 17:09:47 UTC]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mTraveller Load (0.4ms)[0m  [1m[34mSELECT  "travellers".* FROM "travellers" WHERE "travellers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCity Load (0.4ms)[0m  [1m[34mSELECT  "cities".* FROM "cities" WHERE "cities"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "trips" ("traveller_id", "city_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["traveller_id", 1], ["city_id", 1], ["created_at", 2016-09-16 17:09:47 UTC], ["updated_at", 2016-09-16 17:09:47 UTC]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mCity Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "cities" INNER JOIN "trips" ON "cities"."id" = "trips"."city_id" WHERE "trips"."traveller_id" = ? AND "cities"."id" = ? LIMIT ?[0m  [["traveller_id", 1], ["id", 1], ["LIMIT", 1]]
+  [1m[35m (1.4ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (1.3ms)[0m  [1m[32mINSERT INTO "travellers" ("name", "origin", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Andrew"], ["origin", "Lawn Guyland"], ["created_at", 2016-09-16 17:13:52 UTC], ["updated_at", 2016-09-16 17:13:52 UTC]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO "travellers" ("name", "origin", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Colby"], ["origin", "Chicago"], ["created_at", 2016-09-16 17:13:52 UTC], ["updated_at", 2016-09-16 17:13:52 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/api/v1/travellers" for 127.0.0.1 at 2016-09-16 13:13:52 -0400
+Processing by Api::V1::TravellersController#index as HTML
+  [1m[36mTraveller Load (0.3ms)[0m  [1m[34mSELECT "travellers".* FROM "travellers"[0m
+Completed 200 OK in 6ms (Views: 4.3ms | ActiveRecord: 0.3ms)
+  [1m[35m (2.5ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.9ms)[0m  [1m[32mINSERT INTO "cities" ("name", "featured_attraction", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Istanbul"], ["featured_attraction", "Hagia Sofia"], ["created_at", 2016-09-16 17:13:52 UTC], ["updated_at", 2016-09-16 17:13:52 UTC]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.9ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO "travellers" ("name", "origin", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Khaleda"], ["origin", "BK BIOTCH"], ["created_at", 2016-09-16 17:13:52 UTC], ["updated_at", 2016-09-16 17:13:52 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.8ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.5ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.9ms)[0m  [1m[32mINSERT INTO "travellers" ("name", "origin", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Francis"], ["origin", "Queens Baby"], ["created_at", 2016-09-16 17:13:53 UTC], ["updated_at", 2016-09-16 17:13:53 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO "cities" ("name", "featured_attraction", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Istanbul"], ["featured_attraction", "Hagia Sofia"], ["created_at", 2016-09-16 17:13:53 UTC], ["updated_at", 2016-09-16 17:13:53 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.4ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mTraveller Load (0.4ms)[0m  [1m[34mSELECT  "travellers".* FROM "travellers" WHERE "travellers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCity Load (0.3ms)[0m  [1m[34mSELECT  "cities".* FROM "cities" WHERE "cities"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "trips" ("traveller_id", "city_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["traveller_id", 1], ["city_id", 1], ["created_at", 2016-09-16 17:13:53 UTC], ["updated_at", 2016-09-16 17:13:53 UTC]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mCity Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "cities" INNER JOIN "trips" ON "cities"."id" = "trips"."city_id" WHERE "trips"."traveller_id" = ? AND "cities"."id" = ? LIMIT ?[0m  [["traveller_id", 1], ["id", 1], ["LIMIT", 1]]
+  [1m[35m (1.6ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (1.1ms)[0m  [1m[32mINSERT INTO "travellers" ("name", "origin", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Andrew"], ["origin", "Lawn Guyland"], ["created_at", 2016-09-16 17:14:20 UTC], ["updated_at", 2016-09-16 17:14:20 UTC]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO "travellers" ("name", "origin", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Colby"], ["origin", "Chicago"], ["created_at", 2016-09-16 17:14:20 UTC], ["updated_at", 2016-09-16 17:14:20 UTC]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/api/v1/travellers" for 127.0.0.1 at 2016-09-16 13:14:20 -0400
+Processing by Api::V1::TravellersController#index as HTML
+  [1m[36mTraveller Load (0.3ms)[0m  [1m[34mSELECT "travellers".* FROM "travellers"[0m
+Completed 200 OK in 7ms (Views: 5.6ms | ActiveRecord: 0.3ms)
+  [1m[35m (2.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO "cities" ("name", "featured_attraction", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Istanbul"], ["featured_attraction", "Hagia Sofia"], ["created_at", 2016-09-16 17:14:20 UTC], ["updated_at", 2016-09-16 17:14:20 UTC]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (1.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO "travellers" ("name", "origin", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Khaleda"], ["origin", "BK BIOTCH"], ["created_at", 2016-09-16 17:14:20 UTC], ["updated_at", 2016-09-16 17:14:20 UTC]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.9ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (1.5ms)[0m  [1m[32mINSERT INTO "travellers" ("name", "origin", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Francis"], ["origin", "Queens Baby"], ["created_at", 2016-09-16 17:14:20 UTC], ["updated_at", 2016-09-16 17:14:20 UTC]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (1.4ms)[0m  [1m[32mINSERT INTO "cities" ("name", "featured_attraction", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Istanbul"], ["featured_attraction", "Hagia Sofia"], ["created_at", 2016-09-16 17:14:20 UTC], ["updated_at", 2016-09-16 17:14:20 UTC]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.4ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mTraveller Load (0.4ms)[0m  [1m[34mSELECT  "travellers".* FROM "travellers" WHERE "travellers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCity Load (0.6ms)[0m  [1m[34mSELECT  "cities".* FROM "cities" WHERE "cities"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "trips" ("traveller_id", "city_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["traveller_id", 1], ["city_id", 1], ["created_at", 2016-09-16 17:14:20 UTC], ["updated_at", 2016-09-16 17:14:20 UTC]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mCity Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "cities" INNER JOIN "trips" ON "cities"."id" = "trips"."city_id" WHERE "trips"."traveller_id" = ? AND "cities"."id" = ? LIMIT ?[0m  [["traveller_id", 1], ["id", 1], ["LIMIT", 1]]
+  [1m[35m (1.5ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (1.2ms)[0m  [1m[32mINSERT INTO "travellers" ("name", "origin", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Andrew"], ["origin", "Lawn Guyland"], ["created_at", 2016-09-16 17:19:30 UTC], ["updated_at", 2016-09-16 17:19:30 UTC]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.9ms)[0m  [1m[32mINSERT INTO "travellers" ("name", "origin", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Colby"], ["origin", "Chicago"], ["created_at", 2016-09-16 17:19:30 UTC], ["updated_at", 2016-09-16 17:19:30 UTC]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/api/v1/travellers" for 127.0.0.1 at 2016-09-16 13:19:30 -0400
+Processing by Api::V1::TravellersController#index as HTML
+  [1m[36mTraveller Load (0.4ms)[0m  [1m[34mSELECT "travellers".* FROM "travellers"[0m
+Completed 200 OK in 6ms (Views: 4.5ms | ActiveRecord: 0.4ms)
+  [1m[35m (1.6ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.9ms)[0m  [1m[32mINSERT INTO "cities" ("name", "featured_attraction", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Istanbul"], ["featured_attraction", "Hagia Sofia"], ["created_at", 2016-09-16 17:19:30 UTC], ["updated_at", 2016-09-16 17:19:30 UTC]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.9ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO "travellers" ("name", "origin", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Khaleda"], ["origin", "BK BIOTCH"], ["created_at", 2016-09-16 17:19:30 UTC], ["updated_at", 2016-09-16 17:19:30 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.8ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.3ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.9ms)[0m  [1m[32mINSERT INTO "travellers" ("name", "origin", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Francis"], ["origin", "Queens Baby"], ["created_at", 2016-09-16 17:19:30 UTC], ["updated_at", 2016-09-16 17:19:30 UTC]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (1.1ms)[0m  [1m[32mINSERT INTO "cities" ("name", "featured_attraction", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Istanbul"], ["featured_attraction", "Hagia Sofia"], ["created_at", 2016-09-16 17:19:30 UTC], ["updated_at", 2016-09-16 17:19:30 UTC]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mTraveller Load (0.5ms)[0m  [1m[34mSELECT  "travellers".* FROM "travellers" WHERE "travellers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCity Load (0.4ms)[0m  [1m[34mSELECT  "cities".* FROM "cities" WHERE "cities"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "trips" ("traveller_id", "city_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["traveller_id", 1], ["city_id", 1], ["created_at", 2016-09-16 17:19:31 UTC], ["updated_at", 2016-09-16 17:19:31 UTC]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mCity Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "cities" INNER JOIN "trips" ON "cities"."id" = "trips"."city_id" WHERE "trips"."traveller_id" = ? AND "cities"."id" = ? LIMIT ?[0m  [["traveller_id", 1], ["id", 1], ["LIMIT", 1]]
+  [1m[35m (1.5ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (1.1ms)[0m  [1m[32mINSERT INTO "travellers" ("name", "origin", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Andrew"], ["origin", "Lawn Guyland"], ["created_at", 2016-09-16 17:22:29 UTC], ["updated_at", 2016-09-16 17:22:29 UTC]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.9ms)[0m  [1m[32mINSERT INTO "travellers" ("name", "origin", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Colby"], ["origin", "Chicago"], ["created_at", 2016-09-16 17:22:29 UTC], ["updated_at", 2016-09-16 17:22:29 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/api/v1/travellers" for 127.0.0.1 at 2016-09-16 13:22:29 -0400
+Processing by Api::V1::TravellersController#index as HTML
+  [1m[36mTraveller Load (0.3ms)[0m  [1m[34mSELECT "travellers".* FROM "travellers"[0m
+Completed 200 OK in 6ms (Views: 4.6ms | ActiveRecord: 0.3ms)
+  [1m[35m (1.4ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO "cities" ("name", "featured_attraction", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Istanbul"], ["featured_attraction", "Hagia Sofia"], ["created_at", 2016-09-16 17:22:29 UTC], ["updated_at", 2016-09-16 17:22:29 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.9ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.9ms)[0m  [1m[32mINSERT INTO "travellers" ("name", "origin", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Khaleda"], ["origin", "BK BIOTCH"], ["created_at", 2016-09-16 17:22:29 UTC], ["updated_at", 2016-09-16 17:22:29 UTC]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.9ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.9ms)[0m  [1m[32mINSERT INTO "travellers" ("name", "origin", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Francis"], ["origin", "Queens Baby"], ["created_at", 2016-09-16 17:22:30 UTC], ["updated_at", 2016-09-16 17:22:30 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.9ms)[0m  [1m[32mINSERT INTO "cities" ("name", "featured_attraction", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Istanbul"], ["featured_attraction", "Hagia Sofia"], ["created_at", 2016-09-16 17:22:30 UTC], ["updated_at", 2016-09-16 17:22:30 UTC]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mTraveller Load (0.5ms)[0m  [1m[34mSELECT  "travellers".* FROM "travellers" WHERE "travellers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCity Load (0.3ms)[0m  [1m[34mSELECT  "cities".* FROM "cities" WHERE "cities"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "trips" ("traveller_id", "city_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["traveller_id", 1], ["city_id", 1], ["created_at", 2016-09-16 17:22:30 UTC], ["updated_at", 2016-09-16 17:22:30 UTC]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mCity Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "cities" INNER JOIN "trips" ON "cities"."id" = "trips"."city_id" WHERE "trips"."traveller_id" = ? AND "cities"."id" = ? LIMIT ?[0m  [["traveller_id", 1], ["id", 1], ["LIMIT", 1]]
+  [1m[35m (2.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.6ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (1.1ms)[0m  [1m[32mINSERT INTO "travellers" ("name", "origin", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Andrew"], ["origin", "Lawn Guyland"], ["created_at", 2016-09-16 17:23:53 UTC], ["updated_at", 2016-09-16 17:23:53 UTC]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (23.2ms)[0m  [1m[32mINSERT INTO "travellers" ("name", "origin", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Colby"], ["origin", "Chicago"], ["created_at", 2016-09-16 17:23:53 UTC], ["updated_at", 2016-09-16 17:23:53 UTC]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/api/v1/travellers" for 127.0.0.1 at 2016-09-16 13:23:53 -0400
+Processing by Api::V1::TravellersController#index as HTML
+  [1m[36mTraveller Load (0.3ms)[0m  [1m[34mSELECT "travellers".* FROM "travellers"[0m
+Completed 200 OK in 7ms (Views: 5.0ms | ActiveRecord: 0.3ms)
+  [1m[35m (2.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO "cities" ("name", "featured_attraction", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Istanbul"], ["featured_attraction", "Hagia Sofia"], ["created_at", 2016-09-16 17:23:54 UTC], ["updated_at", 2016-09-16 17:23:54 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.9ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.9ms)[0m  [1m[32mINSERT INTO "travellers" ("name", "origin", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Khaleda"], ["origin", "BK BIOTCH"], ["created_at", 2016-09-16 17:23:54 UTC], ["updated_at", 2016-09-16 17:23:54 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.8ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.9ms)[0m  [1m[32mINSERT INTO "travellers" ("name", "origin", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Francis"], ["origin", "Queens Baby"], ["created_at", 2016-09-16 17:23:54 UTC], ["updated_at", 2016-09-16 17:23:54 UTC]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO "cities" ("name", "featured_attraction", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Istanbul"], ["featured_attraction", "Hagia Sofia"], ["created_at", 2016-09-16 17:23:54 UTC], ["updated_at", 2016-09-16 17:23:54 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mTraveller Load (0.4ms)[0m  [1m[34mSELECT  "travellers".* FROM "travellers" WHERE "travellers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCity Load (0.3ms)[0m  [1m[34mSELECT  "cities".* FROM "cities" WHERE "cities"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "trips" ("traveller_id", "city_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["traveller_id", 1], ["city_id", 1], ["created_at", 2016-09-16 17:23:54 UTC], ["updated_at", 2016-09-16 17:23:54 UTC]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mCity Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "cities" INNER JOIN "trips" ON "cities"."id" = "trips"."city_id" WHERE "trips"."traveller_id" = ? AND "cities"."id" = ? LIMIT ?[0m  [["traveller_id", 1], ["id", 1], ["LIMIT", 1]]
+  [1m[35m (1.5ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (1.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.5ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (1.1ms)[0m  [1m[32mINSERT INTO "travellers" ("name", "origin", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Andrew"], ["origin", "Lawn Guyland"], ["created_at", 2016-09-16 17:26:49 UTC], ["updated_at", 2016-09-16 17:26:49 UTC]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO "travellers" ("name", "origin", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Colby"], ["origin", "Chicago"], ["created_at", 2016-09-16 17:26:49 UTC], ["updated_at", 2016-09-16 17:26:49 UTC]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/api/v1/travellers" for 127.0.0.1 at 2016-09-16 13:26:49 -0400
+Processing by Api::V1::TravellersController#index as HTML
+  [1m[36mTraveller Load (0.3ms)[0m  [1m[34mSELECT "travellers".* FROM "travellers"[0m
+Completed 200 OK in 7ms (Views: 4.9ms | ActiveRecord: 0.3ms)
+  [1m[35m (38.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO "travellers" ("name", "origin", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Jason"], ["origin", "New Yourk"], ["created_at", 2016-09-16 17:26:49 UTC], ["updated_at", 2016-09-16 17:26:49 UTC]]
+  [1m[35m (0.3ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/api/v1/travellers/1" for 127.0.0.1 at 2016-09-16 13:26:49 -0400
+Processing by Api::V1::TravellersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mTraveller Load (0.8ms)[0m  [1m[34mSELECT  "travellers".* FROM "travellers" WHERE "travellers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 36ms (Views: 1.5ms | ActiveRecord: 0.8ms)
+  [1m[35m (1.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (1.2ms)[0m  [1m[32mINSERT INTO "cities" ("name", "featured_attraction", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Istanbul"], ["featured_attraction", "Hagia Sofia"], ["created_at", 2016-09-16 17:26:49 UTC], ["updated_at", 2016-09-16 17:26:49 UTC]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.9ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.3ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO "travellers" ("name", "origin", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Khaleda"], ["origin", "BK BIOTCH"], ["created_at", 2016-09-16 17:26:49 UTC], ["updated_at", 2016-09-16 17:26:49 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.8ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.6ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO "travellers" ("name", "origin", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Francis"], ["origin", "Queens Baby"], ["created_at", 2016-09-16 17:26:49 UTC], ["updated_at", 2016-09-16 17:26:49 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.9ms)[0m  [1m[32mINSERT INTO "cities" ("name", "featured_attraction", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Istanbul"], ["featured_attraction", "Hagia Sofia"], ["created_at", 2016-09-16 17:26:49 UTC], ["updated_at", 2016-09-16 17:26:49 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mTraveller Load (0.2ms)[0m  [1m[34mSELECT  "travellers".* FROM "travellers" WHERE "travellers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCity Load (0.4ms)[0m  [1m[34mSELECT  "cities".* FROM "cities" WHERE "cities"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO "trips" ("traveller_id", "city_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["traveller_id", 1], ["city_id", 1], ["created_at", 2016-09-16 17:26:49 UTC], ["updated_at", 2016-09-16 17:26:49 UTC]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mCity Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "cities" INNER JOIN "trips" ON "cities"."id" = "trips"."city_id" WHERE "trips"."traveller_id" = ? AND "cities"."id" = ? LIMIT ?[0m  [["traveller_id", 1], ["id", 1], ["LIMIT", 1]]
+  [1m[35m (1.6ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.4ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (1.1ms)[0m  [1m[32mINSERT INTO "travellers" ("name", "origin", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Andrew"], ["origin", "Lawn Guyland"], ["created_at", 2016-09-16 17:28:01 UTC], ["updated_at", 2016-09-16 17:28:01 UTC]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.9ms)[0m  [1m[32mINSERT INTO "travellers" ("name", "origin", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Colby"], ["origin", "Chicago"], ["created_at", 2016-09-16 17:28:01 UTC], ["updated_at", 2016-09-16 17:28:01 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/api/v1/travellers" for 127.0.0.1 at 2016-09-16 13:28:01 -0400
+Processing by Api::V1::TravellersController#index as HTML
+  [1m[36mTraveller Load (0.3ms)[0m  [1m[34mSELECT "travellers".* FROM "travellers"[0m
+Completed 200 OK in 6ms (Views: 4.5ms | ActiveRecord: 0.3ms)
+  [1m[35m (1.5ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.9ms)[0m  [1m[32mINSERT INTO "travellers" ("name", "origin", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Jason"], ["origin", "New Yourk"], ["created_at", 2016-09-16 17:28:01 UTC], ["updated_at", 2016-09-16 17:28:01 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/api/v1/travellers/1" for 127.0.0.1 at 2016-09-16 13:28:01 -0400
+Processing by Api::V1::TravellersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mTraveller Load (0.4ms)[0m  [1m[34mSELECT  "travellers".* FROM "travellers" WHERE "travellers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 41ms (Views: 1.5ms | ActiveRecord: 0.4ms)
+  [1m[35m (1.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO "cities" ("name", "featured_attraction", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Istanbul"], ["featured_attraction", "Hagia Sofia"], ["created_at", 2016-09-16 17:28:01 UTC], ["updated_at", 2016-09-16 17:28:01 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.9ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.9ms)[0m  [1m[32mINSERT INTO "travellers" ("name", "origin", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Khaleda"], ["origin", "BK BIOTCH"], ["created_at", 2016-09-16 17:28:01 UTC], ["updated_at", 2016-09-16 17:28:01 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.8ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.9ms)[0m  [1m[32mINSERT INTO "travellers" ("name", "origin", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Francis"], ["origin", "Queens Baby"], ["created_at", 2016-09-16 17:28:01 UTC], ["updated_at", 2016-09-16 17:28:01 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.9ms)[0m  [1m[32mINSERT INTO "cities" ("name", "featured_attraction", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Istanbul"], ["featured_attraction", "Hagia Sofia"], ["created_at", 2016-09-16 17:28:01 UTC], ["updated_at", 2016-09-16 17:28:01 UTC]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mTraveller Load (0.2ms)[0m  [1m[34mSELECT  "travellers".* FROM "travellers" WHERE "travellers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCity Load (0.3ms)[0m  [1m[34mSELECT  "cities".* FROM "cities" WHERE "cities"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "trips" ("traveller_id", "city_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["traveller_id", 1], ["city_id", 1], ["created_at", 2016-09-16 17:28:01 UTC], ["updated_at", 2016-09-16 17:28:01 UTC]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mCity Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "cities" INNER JOIN "trips" ON "cities"."id" = "trips"."city_id" WHERE "trips"."traveller_id" = ? AND "cities"."id" = ? LIMIT ?[0m  [["traveller_id", 1], ["id", 1], ["LIMIT", 1]]
+  [1m[35m (1.6ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (1.4ms)[0m  [1m[32mINSERT INTO "travellers" ("name", "origin", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Andrew"], ["origin", "Lawn Guyland"], ["created_at", 2016-09-16 17:29:23 UTC], ["updated_at", 2016-09-16 17:29:23 UTC]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (1.3ms)[0m  [1m[32mINSERT INTO "travellers" ("name", "origin", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Colby"], ["origin", "Chicago"], ["created_at", 2016-09-16 17:29:23 UTC], ["updated_at", 2016-09-16 17:29:23 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/api/v1/travellers" for 127.0.0.1 at 2016-09-16 13:29:23 -0400
+Processing by Api::V1::TravellersController#index as HTML
+  [1m[36mTraveller Load (0.5ms)[0m  [1m[34mSELECT "travellers".* FROM "travellers"[0m
+Completed 200 OK in 8ms (Views: 5.8ms | ActiveRecord: 0.5ms)
+  [1m[35m (1.9ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.9ms)[0m  [1m[32mINSERT INTO "travellers" ("name", "origin", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Jason"], ["origin", "New Yourk"], ["created_at", 2016-09-16 17:29:23 UTC], ["updated_at", 2016-09-16 17:29:23 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/api/v1/travellers/1" for 127.0.0.1 at 2016-09-16 13:29:23 -0400
+Processing by Api::V1::TravellersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mTraveller Load (0.4ms)[0m  [1m[34mSELECT  "travellers".* FROM "travellers" WHERE "travellers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 40ms (Views: 1.5ms | ActiveRecord: 0.4ms)
+  [1m[35m (1.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (1.1ms)[0m  [1m[32mINSERT INTO "cities" ("name", "featured_attraction", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Istanbul"], ["featured_attraction", "Hagia Sofia"], ["created_at", 2016-09-16 17:29:24 UTC], ["updated_at", 2016-09-16 17:29:24 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.8ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.9ms)[0m  [1m[32mINSERT INTO "travellers" ("name", "origin", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Khaleda"], ["origin", "BK BIOTCH"], ["created_at", 2016-09-16 17:29:24 UTC], ["updated_at", 2016-09-16 17:29:24 UTC]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (1.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.9ms)[0m  [1m[32mINSERT INTO "travellers" ("name", "origin", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Francis"], ["origin", "Queens Baby"], ["created_at", 2016-09-16 17:29:24 UTC], ["updated_at", 2016-09-16 17:29:24 UTC]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.9ms)[0m  [1m[32mINSERT INTO "cities" ("name", "featured_attraction", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Istanbul"], ["featured_attraction", "Hagia Sofia"], ["created_at", 2016-09-16 17:29:24 UTC], ["updated_at", 2016-09-16 17:29:24 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mTraveller Load (0.2ms)[0m  [1m[34mSELECT  "travellers".* FROM "travellers" WHERE "travellers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCity Load (0.4ms)[0m  [1m[34mSELECT  "cities".* FROM "cities" WHERE "cities"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "trips" ("traveller_id", "city_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["traveller_id", 1], ["city_id", 1], ["created_at", 2016-09-16 17:29:24 UTC], ["updated_at", 2016-09-16 17:29:24 UTC]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mCity Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "cities" INNER JOIN "trips" ON "cities"."id" = "trips"."city_id" WHERE "trips"."traveller_id" = ? AND "cities"."id" = ? LIMIT ?[0m  [["traveller_id", 1], ["id", 1], ["LIMIT", 1]]
+  [1m[35m (1.5ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (1.1ms)[0m  [1m[32mINSERT INTO "travellers" ("name", "origin", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Andrew"], ["origin", "Lawn Guyland"], ["created_at", 2016-09-16 17:30:03 UTC], ["updated_at", 2016-09-16 17:30:03 UTC]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.9ms)[0m  [1m[32mINSERT INTO "travellers" ("name", "origin", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Colby"], ["origin", "Chicago"], ["created_at", 2016-09-16 17:30:03 UTC], ["updated_at", 2016-09-16 17:30:03 UTC]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/api/v1/travellers" for 127.0.0.1 at 2016-09-16 13:30:03 -0400
+Processing by Api::V1::TravellersController#index as HTML
+  [1m[36mTraveller Load (0.3ms)[0m  [1m[34mSELECT "travellers".* FROM "travellers"[0m
+Completed 200 OK in 6ms (Views: 4.4ms | ActiveRecord: 0.3ms)
+  [1m[35m (44.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.4ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (1.2ms)[0m  [1m[32mINSERT INTO "travellers" ("name", "origin", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Jason"], ["origin", "New Yourk"], ["created_at", 2016-09-16 17:40:50 UTC], ["updated_at", 2016-09-16 17:40:50 UTC]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/api/v1/travellers/1" for 127.0.0.1 at 2016-09-16 13:40:50 -0400
+Processing by Api::V1::TravellersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mTraveller Load (0.5ms)[0m  [1m[34mSELECT  "travellers".* FROM "travellers" WHERE "travellers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+Completed 200 OK in 85ms (Views: 4.2ms | ActiveRecord: 0.5ms)
+  [1m[35m (1.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.5ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.9ms)[0m  [1m[32mINSERT INTO "cities" ("name", "featured_attraction", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Istanbul"], ["featured_attraction", "Hagia Sofia"], ["created_at", 2016-09-16 17:40:50 UTC], ["updated_at", 2016-09-16 17:40:50 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (1.7ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.9ms)[0m  [1m[32mINSERT INTO "travellers" ("name", "origin", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Khaleda"], ["origin", "BK BIOTCH"], ["created_at", 2016-09-16 17:40:50 UTC], ["updated_at", 2016-09-16 17:40:50 UTC]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.9ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.5ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.5ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.9ms)[0m  [1m[32mINSERT INTO "travellers" ("name", "origin", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Francis"], ["origin", "Queens Baby"], ["created_at", 2016-09-16 17:40:50 UTC], ["updated_at", 2016-09-16 17:40:50 UTC]]
+  [1m[35m (0.3ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.4ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.9ms)[0m  [1m[32mINSERT INTO "cities" ("name", "featured_attraction", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Istanbul"], ["featured_attraction", "Hagia Sofia"], ["created_at", 2016-09-16 17:40:50 UTC], ["updated_at", 2016-09-16 17:40:50 UTC]]
+  [1m[35m (0.3ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[36mTraveller Load (0.4ms)[0m  [1m[34mSELECT  "travellers".* FROM "travellers" WHERE "travellers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCity Load (0.6ms)[0m  [1m[34mSELECT  "cities".* FROM "cities" WHERE "cities"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "trips" ("traveller_id", "city_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["traveller_id", 1], ["city_id", 1], ["created_at", 2016-09-16 17:40:50 UTC], ["updated_at", 2016-09-16 17:40:50 UTC]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[36mCity Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "cities" INNER JOIN "trips" ON "cities"."id" = "trips"."city_id" WHERE "trips"."traveller_id" = ? AND "cities"."id" = ? LIMIT ?[0m  [["traveller_id", 1], ["id", 1], ["LIMIT", 1]]
+  [1m[35m (1.9ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
